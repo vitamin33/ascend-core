@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ascend-core"
+version = "0.1.0"
+description = "Trust-based agent orchestrator with policy engine, executor, and memory architecture"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.12"
+authors = [
+    { name = "Vitalii Serbyn", email = "serbyn.vitalii@gmail.com" },
+]
+keywords = ["agent", "orchestrator", "trust", "policy", "llm"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "types-PyYAML>=6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/vitamin33/ascend-core"
+Repository = "https://github.com/vitamin33/ascend-core"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ascend"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "C4", "SIM", "TCH"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,17 @@
+# Example safety configuration for Ascend Core
+# Place as config/safety.yaml
+
+timeouts:
+  default_task_seconds: 300
+  max_task_seconds: 900
+
+limits:
+  max_retries: 2
+  max_concurrent_tasks: 3
+  max_tasks_per_hour: 20
+  max_files_changed_per_task: 30
+
+budget:
+  daily_api_calls: 500
+  monthly_api_calls: 10000
+  alert_threshold_percent: 80

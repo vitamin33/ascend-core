@@ -1,0 +1,46 @@
+# Example policy configuration for Ascend Core
+# Place as config/policies.yaml
+
+projects:
+  my-project:
+    allowed_actions:
+      - report
+      - draft_content
+      - code_review
+      - test
+    forbidden_paths:
+      - "*.env"
+      - ".secrets/*"
+      - "credentials.*"
+    blast_radius: low
+    max_files_per_task: 20
+
+blast_radius_levels:
+  low:
+    auto_approve_min_trust: 0
+  medium:
+    auto_approve_min_trust: 2
+  high:
+    auto_approve_min_trust: 4
+
+agents:
+  code-reviewer:
+    trust_level: 0
+    engine: claude-code
+    allowed:
+      - code_review
+      - report
+    forbidden:
+      - deploy
+      - delete
+      - write
+
+  content-writer:
+    trust_level: 1
+    engine: claude-code
+    allowed:
+      - draft_content
+      - report
+    forbidden:
+      - deploy
+      - delete
