@@ -151,3 +151,7 @@ ascend-core/
 ## License
 
 Apache 2.0 — see [LICENSE](LICENSE).
+
+## Author
+
+Built by [Vitalii Serbyn](https://serbyn.io). Write-ups on agent reliability, with the numbers behind them: [serbyn.io/writing](https://serbyn.io/writing).
